@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Theories | TrueCrime Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mysterio.css">
+    <style>
+        /* Additional styles specific to theories page */
+        .theories-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .theory-form {
+            background-color: rgba(22, 3, 3, 0.671);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #dac577cf;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid #444;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .theory-card {
+            background-color: rgba(22, 3, 3, 0.471);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #dac577cf;
+        }
+        
+        .theory-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .theory-case {
+            font-weight: bold;
+            color: #dac577cf;
+        }
+        
+        .theory-date {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .theory-author {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .theory-content {
+            line-height: 1.6;
+            white-space: pre-wrap; /* Preserve line breaks */
+        }
+        
+        .no-theories {
+            text-align: center;
+            padding: 2rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Community Theories</h1>
+        <p class="subtitle">Share your theories and read what others think about these mysterious cases</p>
+    </header>
+    
+    <nav>
+        <button class="button button1" onclick="window.location.href='innovativeassignment.html'">Home</button>
+        <button class="button button2" id="login-btn">Login</button>
+        <button class="button button3" onclick="window.location.href='theories.html'" disabled>Community Theories</button>
+        <button class="button button4" onclick="window.location.href='resources.html'">Resources</button>
+    </nav>
+    
+    <div class="theories-container">
+        <!-- Theory Submission Form -->
+        <div class="theory-form">
+            <h2>Submit Your Theory</h2>
+            <form id="theoryForm">
+                <div class="form-group">
+                    <label for="caseSelect">Select Case:</label>
+                    <select class="form-control" id="caseSelect" required>
+                        <option value="">-- Choose a case --</option>
+                        <option value="The Zodiac Killer">The Zodiac Killer</option>
+                        <option value="The Disappearance of Maura Murray">The Disappearance of Maura Murray</option>
+                        <option value="The Black Dahlia">The Black Dahlia</option>
+                        <option value="The Long Island Serial Killer">The Long Island Serial Killer</option>
+                        <option value="The Disappearance of Madeleine McCann">The Disappearance of Madeleine McCann</option>
+                        <option value="The Axeman of New Orleans">The Axeman of New Orleans</option>
+                        <option value="The Villisca Axe Murders">The Villisca Axe Murders</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="authorName">Your Name:</label>
+                    <input type="text" class="form-control" id="authorName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="theoryText">Your Theory:</label>
+                    <textarea class="form-control" id="theoryText" required></textarea>
+                </div>
+                
+                <button type="submit" class="button button1">Submit Theory</button>
+            </form>
+        </div>
+        
+        <!-- Theory Filter -->
+        <div class="filter-container">
+            <select class="filter-dropdown" id="theoryFilter">
+                <option value="all">All Cases</option>
+                <option value="The Zodiac Killer">The Zodiac Killer</option>
+                <option value="The Disappearance of Maura Murray">The Disappearance of Maura Murray</option>
+                <option value="The Black Dahlia">The Black Dahlia</option>
+                <option value="The Long Island Serial Killer">The Long Island Serial Killer</option>
+                <option value="The Disappearance of Madeleine McCann">The Disappearance of Madeleine McCann</option>
+                <option value="The Axeman of New Orleans">The Axeman of New Orleans</option>
+                <option value="The Villisca Axe Murders">The Villisca Axe Murders</option>
+            </select>
+        </div>
+        
+        <!-- Theories Display -->
+        <div id="theoriesList">
+            <div class="loading">Loading community theories...</div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 TrueCrime Central. All rights reserved.</p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Initialize theories array if it doesn't exist
+        if (!localStorage.getItem('truecrimeTheories')) {
+            localStorage.setItem('truecrimeTheories', JSON.stringify([]));
+        }
+        
+        // Load theories from localStorage
+        function loadTheories(filter = 'all') {
+            const theoriesList = $('#theoriesList');
+            theoriesList.empty();
+            
+            let theories = JSON.parse(localStorage.getItem('truecrimeTheories')) || [];
+            console.log('Loaded theories:', theories); // Debugging
+            
+            if (filter !== 'all') {
+                theories = theories.filter(theory => theory.case === filter);
+            }
+            
+            if (theories.length === 0) {
+                theoriesList.html('<div class="no-theories">No theories found for this case. Be the first to share your thoughts!</div>');
+                return;
+            }
+            
+            // Sort by date (newest first)
+            theories.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            theories.forEach(theory => {
+                const theoryCard = $(`
+                    <div class="theory-card" data-case="${theory.case}">
+                        <div class="theory-header">
+                            <span class="theory-case">${theory.case}</span>
+                            <span class="theory-date">${new Date(theory.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}</span>
+                        </div>
+                        <div class="theory-author">Posted by: ${theory.author}</div>
+                        <div class="theory-content">${theory.content}</div>
+                    </div>
+                `);
+                
+                theoriesList.append(theoryCard);
+            });
+        }
+        
+        // Handle form submission
+        $('#theoryForm').submit(function(e) {
+            e.preventDefault();
+            
+            const caseSelect = $('#caseSelect').val();
+            const authorName = $('#authorName').val().trim();
+            const theoryText = $('#theoryText').val().trim();
+            
+            if (!caseSelect || !authorName || !theoryText) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Get existing theories
+            const theories = JSON.parse(localStorage.getItem('truecrimeTheories')) || [];
+            
+            // Add new theory
+            const newTheory = {
+                case: caseSelect,
+                author: authorName,
+                content: theoryText,
+                date: new Date().toISOString()
+            };
+            
+            theories.push(newTheory);
+            console.log('Adding new theory:', newTheory); // Debugging
+            
+            // Save back to localStorage
+            localStorage.setItem('truecrimeTheories', JSON.stringify(theories));
+            console.log('Updated theories:', JSON.parse(localStorage.getItem('truecrimeTheories'))); // Debugging
+            
+            // Reset form
+            this.reset();
+            
+            // Reload theories with current filter
+            const currentFilter = $('#theoryFilter').val();
+            loadTheories(currentFilter);
+            
+            // Show success message
+            alert('Thank you for sharing your theory!');
+        });
+        
+        // Filter theories
+        $('#theoryFilter').change(function() {
+            loadTheories($(this).val());
+        });
+        
+        // Load theories when page loads
+        $(document).ready(function() {
+            // Add some sample theories if none exist (for testing)
+            const theories = JSON.parse(localStorage.getItem('truecrimeTheories'));
+            if (theories.length === 0) {
+                const sampleTheories = [
+                    {
+                        case: "The Zodiac Killer",
+                        author: "CrimeEnthusiast42",
+                        content: "I believe the Zodiac Killer was a disgruntled school teacher who had access to school supplies like the cipher paper he used. The meticulous nature of the crimes suggests someone used to maintaining order and discipline.",
+                        date: "2023-05-15T10:30:00Z"
+                    },
+                    {
+                        case: "The Disappearance of Maura Murray",
+                        author: "NewEnglandSleuth",
+                        content: "After studying the case for years, I think Maura intentionally disappeared into the woods and succumbed to the elements. The lack of remains is due to animal activity in the dense forest area.",
+                        date: "2023-06-20T14:45:00Z"
+                    }
+                ];
+                localStorage.setItem('truecrimeTheories', JSON.stringify(sampleTheories));
+            }
+            
+            loadTheories();
+        });
+    </script>
+</body>
+</html>

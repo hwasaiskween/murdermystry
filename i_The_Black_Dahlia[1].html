@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Investigation | TrueCrime Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mysterio.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Timeline-specific styles */
+        .investigation-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .case-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #dac577cf;
+        }
+        
+        .case-title {
+            color: #dac577cf;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-subtitle {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #8b0000;
+        }
+        
+        .timeline-event {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: rgba(22, 3, 3, 0.471);
+            border-radius: 8px;
+            border-left: 3px solid #dac577cf;
+        }
+        
+        .event-date {
+            position: absolute;
+            left: -50px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #8b0000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid #dac577cf;
+        }
+        
+        .event-title {
+            color: #f5f5f5;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-content {
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        .event-documents {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .event-documents a {
+            color: #dac577cf;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+        
+        .event-documents a:hover {
+            text-decoration: underline;
+        }
+        
+        .theory-cta {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: rgba(22, 3, 3, 0.671);
+            border-radius: 8px;
+            border: 1px solid #dac577cf;
+        }
+        
+        .theory-cta h2 {
+            color: #dac577cf;
+            margin-bottom: 1rem;
+        }
+        
+        .theory-cta p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Case Investigation Timeline</h1>
+        <p class="subtitle">Chronological breakdown of key events in the investigation</p>
+    </header>
+    
+    <nav>
+        <button class="button button1" onclick="window.location.href='innovativeassignment.html'">Home</button>
+        <button class="button button2" onclick="window.location.href='login.html'">Login</button>
+        <button class="button button3" onclick="window.location.href='theories.html'">Community Theories</button>
+        <button class="button button4" onclick="window.location.href='resources.html'">Resources</button>
+    </nav>
+    
+    <div class="investigation-container">
+        <div class="case-header">
+            <h2 class="case-title">The Black Dahlia</h2>
+            <p class="case-subtitle">January 1947 | Los Angeles, California</p>
+        </div>
+        
+        <div class="timeline" id="investigationTimeline">
+            <div class="timeline-event">
+                <div class="event-date">Jan 15</div>
+                <h3 class="event-title">Body Discovered</h3>
+                <div class="event-content">
+                    <p>Elizabeth Short's bisected body is found in a vacant lot in Leimert Park, Los Angeles.</p>
+                    <p>The body was cleaned, drained of blood, and posed with hands over head.</p>
+                </div>
+                <div class="event-documents">
+                    <a href="#" target="_blank">Crime Scene Photos</a>
+                    <a href="#" target="_blank">Autopsy Report</a>
+                </div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">Jan 21</div>
+                <h3 class="event-title">Media Frenzy Begins</h3>
+                <div class="event-content">Press dubs victim "The Black Dahlia," sensationalizing the case.</div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">Jan 23</div>
+                <h3 class="event-title">First Letter to Press</h3>
+                <div class="event-content">Someone claiming to be the killer sends Elizabeth's belongings and a letter to the Examiner.</div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">Jan 25</div>
+                <h3 class="event-title">Suspect Arrested</h3>
+                <div class="event-content">Robert "Red" Manley detained but released after alibi checks out.</div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">Jan 28</div>
+                <h3 class="event-title">Second Letter</h3>
+                <div class="event-content">Another letter arrives at the Examiner with the killer taunting police.</div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">Feb 1</div>
+                <h3 class="event-title">Suspect Cleared</h3>
+                <div class="event-content">Leslie Dillon, a mortician's assistant, is investigated but cleared.</div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">Feb 11</div>
+                <h3 class="event-title">False Confession</h3>
+                <div class="event-content">Joseph Dumais confesses but is proven to have been in another state.</div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">Mar 1947</div>
+                <h3 class="event-title">Dr. Hodel Investigated</h3>
+                <div class="event-content">Dr. George Hodel comes under suspicion but isn't charged.</div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">1949</div>
+                <h3 class="event-title">Case Goes Cold</h3>
+                <div class="event-content">Active investigation winds down without an arrest.</div>
+            </div>
+            
+            <div class="timeline-event">
+                <div class="event-date">2003</div>
+                <h3 class="event-title">Hodel Theory Resurfaces</h3>
+                <div class="event-content">Hodel's son, a former LAPD detective, publishes book accusing his father.</div>
+            </div>
+        </div>
+        
+        <div class="theory-cta">
+            <h2>Have a Theory About This Case?</h2>
+            <p>Share your thoughts and analysis with our community of true crime enthusiasts. Your perspective could help shed new light on this investigation.</p>
+            <button class="button button3" onclick="window.location.href='theories.html'">Post Your Theory</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 TrueCrime Central. All rights reserved.</p>
+    </footer>
+</body>
+</html>

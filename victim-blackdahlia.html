@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elizabeth Short Profile | TrueCrime Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mysterio.css">
+    <style>
+        /* Victim profile styles */
+        .profile-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        .profile-name {
+            color: #dac577cf;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-subtitle {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8b0000;
+            margin: 0 auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-section {
+            background-color: rgba(22, 3, 3, 0.471);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #dac577cf;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .section-title {
+            color: #dac577cf;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-content {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .crime-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .detail-item {
+            background-color: rgba(139, 0, 0, 0.2);
+            padding: 0.8rem;
+            border-radius: 6px;
+            border-left: 3px solid #8b0000;
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .detail-item:hover {
+            background-color: rgba(139, 0, 0, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .detail-title {
+            color: #dac577cf;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Delay animations for each section */
+        .profile-section:nth-child(1) { animation-delay: 0.2s; }
+        .profile-section:nth-child(2) { animation-delay: 0.4s; }
+        .profile-section:nth-child(3) { animation-delay: 0.6s; }
+        .profile-section:nth-child(4) { animation-delay: 0.8s; }
+        
+        .return-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .return-link a {
+            color: #dac577cf;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .return-link a:hover {
+            color: #f5f5f5;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Victim Profile</h1>
+        <p class="subtitle">Biographical details and case information</p>
+    </header>
+    
+    <nav>
+        <button class="button button1" onclick="window.location.href='innovativeassignment.html'">Home</button>
+        <button class="button button2" onclick="window.location.href='login.html'">Login</button>
+        <button class="button button3" onclick="window.location.href='theories.html'">Community Theories</button>
+        <button class="button button4" onclick="window.location.href='resources.html'">Resources</button>
+    </nav>
+    
+    <div class="profile-container">
+        <div class="profile-header">
+            <h2 class="profile-name">Elizabeth Short</h2>
+            <p class="profile-subtitle">"The Black Dahlia" | 1924-1947 | Unsolved Murder</p>
+            <img src="https://dyingwords.net/wp-content/uploads/2022/01/BD14-300x195.jpg" alt="Elizabeth Short" class="profile-image">
+        </div>
+        
+        <!-- Early Life Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Early Life & Background</h3>
+            <div class="section-content">
+                <p><strong>Birth:</strong> July 29, 1924 in Boston, Massachusetts</p>
+                <p><strong>Family:</strong> Fifth of six daughters. Father lost his business during Great Depression and later faked his suicide.</p>
+                
+                <p><strong>Health Issues:</strong> Severe asthma and bronchitis as a child led to hospitalization at age 15.</p>
+                
+                <p><strong>Early Adulthood:</strong> Moved to California in 1942 to live with her father, but they didn't get along. Worked various jobs and moved frequently.</p>
+                
+                <p><strong>Personality:</strong> Described as shy but attention-seeking, often inventing stories about herself. Aspired to be an actress.</p>
+            </div>
+        </div>
+        
+        <!-- Last Days Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Final Days</h3>
+            <div class="section-content">
+                <p><strong>December 1946:</strong> Met Robert Manley, a salesman who became the last known person to see her alive.</p>
+                
+                <p><strong>January 9, 1947:</strong> Checked out of the Figueroa Hotel in downtown LA. Told staff she was going to Chicago.</p>
+                
+                <p><strong>Whereabouts Unknown:</strong> Her activities between January 9-15 remain a mystery. May have stayed with friends or acquaintances.</p>
+                
+                <p><strong>Final Sighting:</strong> Possibly seen at the Biltmore Hotel on January 15, though this remains unconfirmed.</p>
+            </div>
+        </div>
+        
+        <!-- Crime Details Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Crime Scene Details</h3>
+            <div class="section-content">
+                <p>The murder displayed signs of both extreme violence and bizarre ritualistic elements:</p>
+                
+                <div class="crime-details">
+                    <div class="detail-item">
+                        <div class="detail-title">Cause of Death</div>
+                        <p>Hemorrhage and shock from blows to the head and facial lacerations</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-title">Postmortem Mutilation</div>
+                        <p>Body was completely severed at the waist and drained of blood</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-title">Facial Injuries</div>
+                        <p>"Glasgow smile" cuts from mouth to ears, resembling a grotesque smile</p>
+                    </div>
+                </div>
+                
+                <p><strong>Medical Knowledge:</strong> The precision of the mutilations suggested the killer had anatomical or surgical training.</p>
+            </div>
+        </div>
+        
+        <!-- Theories Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Notable Suspects & Theories</h3>
+            <div class="section-content">
+                <p><strong>George Hodel:</strong> LA physician investigated by his own son (an LAPD detective). Had surgical skills and was connected to surrealist circles.</p>
+                
+                <p><strong>Leslie Dillon:</strong> A mortician's assistant with knowledge of embalming. Was in LA at the time but had an alibi.</p>
+                
+                <p><strong>Mark Hansen:</strong> Theater owner who knew Short. His name was cut from her address book found by police.</p>
+                
+                <p><strong>Unknown Serial Killer:</strong> Some link the murder to the similar "Cleveland Torso Murders" or other unsolved crimes.</p>
+            </div>
+        </div>
+        
+        <div class="return-link">
+            <a href="investigation-blackdahlia.html">View Investigation Timeline →</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 TrueCrime Central. All rights reserved.</p>
+    </footer>
+</body>
+</html>

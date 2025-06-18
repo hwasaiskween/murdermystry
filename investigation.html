@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Investigation | TrueCrime Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mysterio.css">
+    <style>
+        /* Timeline-specific simple styles */
+        .investigation-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .case-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #dac577cf;
+        }
+        
+        .case-title {
+            color: #dac577cf;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-subtitle {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-event {
+            background-color: rgba(22, 3, 3, 0.471);
+            border-left: 4px solid #8b0000;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .event-date {
+            background-color: #8b0000;
+            color: white;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        
+        .event-title {
+            color: #dac577cf;
+            font-size: 1.3rem;
+            margin: 1rem 0;
+        }
+        
+        .event-content {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .event-content p {
+            margin-bottom: 0.8rem;
+        }
+        
+        .theory-cta {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: rgba(22, 3, 3, 0.671);
+            border-radius: 8px;
+            border: 1px solid #dac577cf;
+        }
+        
+        .theory-cta h2 {
+            color: #dac577cf;
+            margin-bottom: 1rem;
+        }
+        
+        .theory-cta a {
+            color: #dac577cf;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .theory-cta a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Case Investigation Timeline</h1>
+        <p class="subtitle">Chronological breakdown of key events in the investigation</p>
+    </header>
+    
+    <nav>
+        <button class="button button1" onclick="window.location.href='innovativeassignment.html'">Home</button>
+        <button class="button button2" onclick="window.location.href='login.html'">Login</button>
+        <button class="button button3" onclick="window.location.href='theories.html'">Community Theories</button>
+        <button class="button button4" onclick="window.location.href='resources.html'">Resources</button>
+    </nav>
+    
+    <div class="investigation-container">
+        <div class="case-header">
+            <h2 class="case-title">The Zodiac Killer</h2>
+            <p class="case-subtitle">1968-1974 | Northern California</p>
+        </div>
+        
+        <!-- Event 1 -->
+        <div class="timeline-event">
+            <div class="event-date">December 20, 1968</div>
+            <h3 class="event-title">Lake Herman Road Murders</h3>
+            <div class="event-content">
+                <p>David Faraday (17) and Betty Lou Jensen (16) were shot and killed while parked at a lovers' lane. This was the first confirmed Zodiac attack.</p>
+                <p>The killer approached their car and fired multiple shots without warning. Police found five spent shell casings at the scene.</p>
+            </div>
+        </div>
+        
+        <!-- Event 2 -->
+        <div class="timeline-event">
+            <div class="event-date">July 4, 1969</div>
+            <h3 class="event-title">Blue Rock Springs Attack</h3>
+            <div class="event-content">
+                <p>Darlene Ferrin (22) was killed and Michael Mageau (19) survived despite being shot multiple times at close range.</p>
+                <p>The killer called police from a pay phone just minutes after the shooting, saying: "I want to report a murder - no, a double murder."</p>
+            </div>
+        </div>
+        
+        <!-- Event 3 -->
+        <div class="timeline-event">
+            <div class="event-date">August 1, 1969</div>
+            <h3 class="event-title">First Zodiac Letters</h3>
+            <div class="event-content">
+                <p>Three newspapers received identical letters with a cipher and the now-iconic crossed-circle symbol.</p>
+                <p>The letters contained details only the killer would know, including the type of ammunition used in the attacks.</p>
+            </div>
+        </div>
+        
+        <!-- Event 4 -->
+        <div class="timeline-event">
+            <div class="event-date">September 27, 1969</div>
+            <h3 class="event-title">Lake Berryessa Stabbings</h3>
+            <div class="event-content">
+                <p>The killer wore a black executioner's hood with the Zodiac symbol while attacking Bryan Hartnell and Cecelia Shepard.</p>
+                <p>He calmly told them he wanted their money and car, then methodically stabbed them multiple times before walking away.</p>
+            </div>
+        </div>
+        
+        <!-- Event 5 -->
+        <div class="timeline-event">
+            <div class="event-date">October 11, 1969</div>
+            <h3 class="event-title">Paul Stine Murder</h3>
+            <div class="event-content">
+                <p>Taxi driver Paul Stine was shot in the head in San Francisco's Presidio Heights neighborhood.</p>
+                <p>Witnesses saw the killer wiping down the cab interior, showing knowledge of forensic techniques.</p>
+            </div>
+        </div>
+        
+        <!-- Event 6 -->
+        <div class="timeline-event">
+            <div class="event-date">October 14, 1969</div>
+            <h3 class="event-title">Bloody Shirt Evidence</h3>
+            <div class="event-content">
+                <p>The Zodiac sent a piece of Paul Stine's bloody shirt to the San Francisco Chronicle.</p>
+                <p>Accompanying letters threatened school bus attacks, causing widespread panic and school closures.</p>
+            </div>
+        </div>
+        
+        <div class="theory-cta">
+            <h2>Have Thoughts About This Case?</h2>
+            <p><a href="theories.html">Share your theories with our community →</a></p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 TrueCrime Central. All rights reserved.</p>
+    </footer>
+</body>
+</html>

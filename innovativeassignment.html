@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueCrime Central - Unsolved Mysteries</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mysterio.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Disclaimer Modal Styles */
+        .disclaimer-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .disclaimer-content {
+            background-color: rgba(22, 3, 3, 0.9);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            border: 2px solid #8b0000;
+            color: #e0e0e0;
+        }
+        
+        .disclaimer-content h2 {
+            color: #dac577cf;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .disclaimer-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .disclaimer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .disclaimer-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .accept-btn {
+            background-color: #6c560d;
+            color: #e0e0e0;
+            border: none;
+        }
+        
+        .accept-btn:hover {
+            background-color: #cfc31fe4;
+            color: #000;
+        }
+        
+        .leave-btn {
+            background-color: #8b0000;
+            color: #e0e0e0;
+            border: none;
+        }
+        
+        .leave-btn:hover {
+            background-color: #c62828;
+        }
+        
+        /* Help Resources Section */
+        .help-section {
+            background-color: rgba(22, 3, 3, 0.471);
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 2px solid #dac577cf;
+            color: #e0e0e0;
+        }
+        
+        .help-section h2 {
+            color: #dac577cf;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .help-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .help-lines {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .help-card {
+            background-color: rgba(139, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid #8b0000;
+            width: 300px;
+        }
+        
+        .help-card h3 {
+            color: #dac577cf;
+            margin-bottom: 1rem;
+        }
+        
+        .help-card p {
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+        
+        .help-card a {
+            color: #dac577cf;
+            text-decoration: none;
+        }
+        
+        .help-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Disclaimer Modal -->
+    <div class="disclaimer-modal" id="disclaimerModal">
+        <div class="disclaimer-content">
+            <h2>Content Warning</h2>
+            <p>This website contains graphic discussions of violent crimes, including murder, sexual violence, and other disturbing content. The material presented may be triggering for some individuals.</p>
+            <p>You may encounter:</p>
+            <ul>
+                <li>Descriptions of violent acts</li>
+                <li>Crime scene details</li>
+                <li>Victim photographs (non-graphic)</li>
+                <li>Psychological analysis of violent behavior</li>
+            </ul>
+            <p>This content is intended for educational and research purposes only. Viewer discretion is strongly advised.</p>
+            <div class="disclaimer-buttons">
+                <button class="disclaimer-btn accept-btn" id="acceptDisclaimer">I Understand - Continue</button>
+                <button class="disclaimer-btn leave-btn" id="leaveSite">Leave Site</button>
+            </div>
+        </div>
+    </div>
+    
+    <header>
+        <h1>TrueCrime Central</h1>
+        <p class="subtitle">Explore the world's most baffling unsolved mysteries, chilling serial killer cases, and heartbreaking missing persons reports</p>
+    </header>
+    
+    <nav>
+        <button class="button button1" id="register-btn">Register</button>
+        <button class="button button2" id="login-btn">Login</button>
+        <button class="button button3" id="theories-btn">Community Theories</button>
+        <button class="button button4" id="resources-btn">Resources</button>
+    </nav>
+    
+    <div class="filter-container">
+        <select class="filter-dropdown" id="case-filter">
+            <option value="all">All Cases</option>
+            <option value="serial">Serial Killers</option>
+            <option value="missing">Missing Persons</option>
+            <option value="unsolved">Unsolved Murders</option>
+            <option value="solved">Solved Cases</option>
+        </select>
+    </div>
+    
+    <div class="case-list" id="case-container">
+        <!-- Cases will be loaded here by JavaScript -->
+        <div class="loading">Loading chilling cases...</div>
+    </div>
+    
+    <!-- Help Resources Section -->
+    <div class="help-section">
+        <h2>Need Help or Support?</h2>
+        <p>Engaging with true crime content can sometimes bring up difficult emotions or memories. There is absolutely no shame in seeking help - in fact, it's one of the bravest things you can do. Whether you're struggling with mental health, dealing with trauma, or just need someone to talk to, these resources are here for you.</p>
+        
+        <div class="help-lines">
+            <div class="help-card">
+                <h3>Crisis Support (USA)</h3>
+                <p><strong>National Suicide Prevention Lifeline:</strong> <a href="tel:988">988</a></p>
+                <p><strong>Crisis Text Line:</strong> Text HOME to <a href="sms:741741">741741</a></p>
+                <p><strong>RAINN (Sexual Violence):</strong> <a href="tel:8006564673">800-656-HOPE</a></p>
+            </div>
+            
+            <div class="help-card">
+                <h3>International Support</h3>
+                <p><strong>Befrienders Worldwide:</strong> <a href="https://www.befrienders.org" target="_blank">Find local helpline</a></p>
+                <p><strong>International Survivors of Suicide Loss:</strong> <a href="https://afsp.org" target="_blank">AFSP.org</a></p>
+                <p><strong>Victim Support Europe:</strong> <a href="https://victim-support.eu" target="_blank">victim-support.eu</a></p>
+            </div>
+            
+            <div class="help-card">
+                <h3>Mental Health Resources</h3>
+                <p><strong>National Alliance on Mental Illness:</strong> <a href="tel:8009506264">800-950-NAMI</a></p>
+                <p><strong>The Trevor Project (LGBTQ+):</strong> <a href="tel:8664887386">866-488-7386</a></p>
+                <p><strong>Veterans Crisis Line:</strong> <a href="tel:8002738255">800-273-8255</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 TrueCrime Central. All rights reserved. | Disclaimer: This site contains graphic content about real crimes. Viewer discretion is advised.</p>
+    </footer>
+    
+    <!-- Modal for quick case preview -->
+    <div class="modal" id="case-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Show disclaimer modal on first visit
+        $(document).ready(function() {
+            // Check if disclaimer was already accepted
+            if (!localStorage.getItem('disclaimerAccepted')) {
+                $('#disclaimerModal').fadeIn();
+                $('body').css('overflow', 'hidden'); // Prevent scrolling
+            }
+            
+            // Handle disclaimer buttons
+            $('#acceptDisclaimer').click(function() {
+                localStorage.setItem('disclaimerAccepted', 'true');
+                $('#disclaimerModal').fadeOut();
+                $('body').css('overflow', 'auto');
+            });
+            
+            $('#leaveSite').click(function() {
+                window.location.href = 'https://www.google.com';
+            });
+            
+            // Rest of your existing document.ready code...
+            // Initial render
+            renderCases();
+            
+            // Filter cases
+            $('#case-filter').change(function() {
+                renderCases($(this).val());
+            });
+            
+            // Case button click
+            $(document).on('click', '.case-button', function() {
+                const caseId = parseInt($(this).data('id'));
+                showCaseModal(caseId);
+            });
+            
+            // Modal close
+            $('.close-modal').click(function() {
+                $('#case-modal').fadeOut();
+            });
+            
+            // Nav button handlers
+            $('#register-btn').click(() => {
+                window.location.href = 'registrationn.html';
+            });
+            
+            $('#login-btn').click(() => {
+                window.location.href = 'login.html';
+            });
+            
+            $('#theories-btn').click(() => {
+                window.location.href = 'theories.html';
+            });
+            
+            $('#resources-btn').click(() => {
+                window.location.href = 'resources.html';
+            });
+            
+            // Close modal when clicking outside
+            $(window).click(function(event) {
+                if ($(event.target).is('#case-modal')) {
+                    $('#case-modal').fadeOut();
+                }
+            });
+        });
+
+        // Updated case data with all correct file links
+        const cases = [
+            {
+                id: 1,
+                title: "The Zodiac Killer",
+                image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Zodiac-Killer.jpg",
+                category: "serial",
+                status: "unsolved",
+                year: "1960s",
+                location: "California, USA",
+                victims: "5+ confirmed",
+                description: "The Zodiac Killer terrorized Northern California in the late 1960s, sending cryptic messages to newspapers and taunting police. Despite one of the largest manhunts in history, the killer's identity remains unknown.",
+                gender: "male",
+                victimFile: "victim-zodiac.html"
+            },
+            {
+                id: 2,
+                title: "Ted Bundy",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Ted_Bundy_in_court.jpg/250px-Ted_Bundy_in_court.jpg",
+                category: "serial",
+                status: "solved",
+                year: "1974-1978",
+                location: "Multiple states, USA",
+                victims: "30+",
+                description: "One of America's most notorious serial killers who confessed to 30 homicides of young women across several states. Executed in Florida in 1989 after a highly publicized trial.",
+                gender: "male",
+                investigationFile: "investigation-ted-bundy.html",
+                perpetratorFile: "perp2.html"
+            },
+            {
+                id: 3,
+                title: "The Black Dahlia",
+                image: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Elizabeth_Short_photo_from_police_bulletin.jpg",
+                category: "unsolved",
+                status: "unsolved",
+                year: "1947",
+                location: "Los Angeles, USA",
+                victims: "1",
+                description: "The gruesome murder of Elizabeth Short, dubbed 'The Black Dahlia,' remains one of LA's most infamous unsolved cases. Her body was found severed in half and posed in a vacant lot.",
+                gender: "female",
+                investigationFile: "investigation-blackdahlia.html",
+                victimFile: "victim-blackdahlia.html"
+            },
+            {
+                id: 4,
+                title: "Jeffrey Dahmer",
+                image: "https://thumbnails.cbsig.net/_x/w400/CBS_Production_Entertainment_VMS/2024/06/03/2343522371962/PPPAR_MYSONJEFFREYTHEDAHMERFAMILYTAPES_102_2711046_1920x1080.jpg",
+                category: "serial",
+                status: "solved",
+                year: "1978-1991",
+                location: "Wisconsin, USA",
+                victims: "17",
+                description: "Known as the Milwaukee Cannibal, Dahmer murdered and dismembered 17 men and boys. Killed in prison by a fellow inmate in 1994.",
+                gender: "male",
+                investigationFile: "investigation-jeffrey-dahmer.html",
+                perpetratorFile: "jeffrey-dahmer-perp.html"
+            },
+            {
+                id: 5,
+                title: "The Disappearance of Madeleine McCann",
+                image: "https://static.yabiladi.com/files/articles/b070cd05695356baaa580376d1c71164_thumb_565.jpg",
+                category: "missing",
+                status: "unsolved",
+                year: "2007",
+                location: "Portugal",
+                victims: "1",
+                description: "Three-year-old Madeleine vanished from her family's holiday apartment in Portugal, sparking one of the most high-profile missing person cases in history.",
+                gender: "female",
+                investigationFile: "investigation-mccann.html",
+                victimFile: "victim-mccann.html"
+            },
+            {
+                id: 6,
+                title: "Aileen Wuornos",
+                image: "https://m.media-amazon.com/images/M/MV5BYmI0YjgwMDktZjNkOS00MGFlLWJiNzgtMTg3YWI5MzA0Y2VmXkEyXkFqcGc@._V1_.jpg",
+                category: "serial",
+                status: "solved",
+                year: "1989-1990",
+                location: "Florida, USA",
+                victims: "7",
+                description: "One of America's few female serial killers who murdered seven men while working as a prostitute. Executed in Florida in 2002.",
+                gender: "female",
+                investigationFile: "investigation-aileen-wuornos.html",
+                perpetratorFile: "aileen-wuornos-perp.html"
+            },
+            {
+                id: 7,
+                title: "The Villisca Axe Murders",
+                image: "https://i.redd.it/5p8n9bofvpqz.jpg",
+                category: "unsolved",
+                status: "unsolved",
+                year: "1912",
+                location: "Iowa, USA",
+                victims: "8",
+                description: "The brutal axe murders of eight people, including six children, in their Villisca, Iowa home. The case remains unsolved over a century later.",
+                gender: "male",
+                investigationFile: "investigation-villisca.html",
+                victimFile: "victim-villisca.html"
+            }
+        ];
+        
+        // Function to render cases
+        function renderCases(filter = 'all') {
+            const container = $('#case-container');
+            container.empty();
+            
+            let filteredCases = cases;
+            if (filter !== 'all') {
+                filteredCases = cases.filter(caseItem => 
+                    filter === 'solved' ? caseItem.status === 'solved' : caseItem.category === filter
+                );
+            }
+            
+            if (filteredCases.length === 0) {
+                container.html('<p class="no-results">No cases match your filter criteria.</p>');
+                return;
+            }
+            
+            filteredCases.forEach((caseItem, index) => {
+                const statusClass = `status-${caseItem.status}`;
+                const statusText = caseItem.status.charAt(0).toUpperCase() + caseItem.status.slice(1);
+                
+                const caseCard = $(`
+                    <div class="case-card" data-id="${caseItem.id}" data-category="${caseItem.category}" data-status="${caseItem.status}" data-gender="${caseItem.gender}">
+                        <img src="${caseItem.image}" alt="${caseItem.title}" class="case-image">
+                        <div class="case-content">
+                            <h3 class="case-title">${caseItem.title}</h3>
+                            <div class="case-meta">
+                                <span>${caseItem.year} • ${caseItem.location}</span>
+                                <span class="case-status ${statusClass}">${statusText}</span>
+                            </div>
+                            <p class="case-description">${caseItem.description}</p>
+                            <button class="case-button" data-id="${caseItem.id}">Explore Case</button>
+                        </div>
+                    </div>
+                `);
+                
+                // Add animation delay
+                caseCard.css('transition-delay', `${index * 0.1}s`);
+                
+                container.append(caseCard);
+                
+                // Animate card into view
+                setTimeout(() => {
+                    caseCard.addClass('visible');
+                }, 100);
+            });
+        }
+        
+        // Updated function to show case modal with proper buttons
+        function showCaseModal(caseId) {
+            const caseData = cases.find(c => c.id === caseId);
+            if (!caseData) return;
+            
+            const modalContent = $(`
+                <h2>${caseData.title}</h2>
+                <div class="modal-meta">
+                    <p><strong>Year:</strong> ${caseData.year}</p>
+                    <p><strong>Location:</strong> ${caseData.location}</p>
+                    <p><strong>Victims:</strong> ${caseData.victims}</p>
+                    <p><strong>Status:</strong> <span class="case-status status-${caseData.status}">${caseData.status.charAt(0).toUpperCase() + caseData.status.slice(1)}</span></p>
+                </div>
+                <img src="${caseData.image}" alt="${caseData.title}" style="width: 100%; max-height: 300px; object-fit: cover; margin: 1rem 0;">
+                <p>${caseData.description}</p>
+                <div class="modal-actions" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="button button1" id="investigation-btn">
+                        ${caseData.status === 'solved' ? 'Solved' : 'Unsolved'} Investigation
+                    </button>
+                    ${caseData.status === 'solved' && caseData.perpetratorFile ? `
+                    <button class="button button3" id="perpetrator-btn">
+                        Perpetrator Profile
+                    </button>
+                    ` : ''}
+                    ${caseData.victimFile ? `
+                    <button class="button button2" id="victim-btn">
+                        Victim Profile
+                    </button>
+                    ` : ''}
+                </div>
+            `);
+            
+            $('#modal-content').html(modalContent);
+            $('#case-modal').fadeIn();
+            
+            // Set up button handlers for this modal
+            $('#investigation-btn').click(() => {
+                if (caseData.investigationFile) {
+                    window.location.href = caseData.investigationFile;
+                } else {
+                    window.location.href = `investigation.html?case=${caseId}`;
+                }
+            });
+            
+            if (caseData.status === 'solved' && caseData.perpetratorFile) {
+                $('#perpetrator-btn').click(() => {
+                    window.location.href = caseData.perpetratorFile;
+                });
+            }
+            
+            if (caseData.victimFile) {
+                $('#victim-btn').click(() => {
+                    window.location.href = caseData.victimFile;
+                });
+            }
+        }
+    </script>
+</body>
+</html>

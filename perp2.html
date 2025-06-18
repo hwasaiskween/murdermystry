@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ted Bundy Profile | TrueCrime Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mysterio.css">
+    <style>
+        .profile-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-name {
+            color: #dac577cf;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-subtitle {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff0000; /* Changed to bright red */
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .profile-section {
+            background-color: rgba(22, 3, 3, 0.471);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #dac577cf;
+        }
+        
+        .section-title {
+            color: #dac577cf;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-content {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .crime-signature {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .signature-item {
+            background-color: rgba(139, 0, 0, 0.2);
+            padding: 0.8rem;
+            border-radius: 6px;
+            border-left: 3px solid #8b0000;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .signature-title {
+            color: #dac577cf;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .return-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .return-link a {
+            color: #dac577cf;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Perpetrator Profile</h1>
+        <p class="subtitle">Psychological and biographical analysis of criminal offenders</p>
+    </header>
+    
+    <nav>
+        <button class="button button1" onclick="window.location.href='innovativeassignment.html'">Home</button>
+        <button class="button button2" onclick="window.location.href='login.html'">Login</button>
+        <button class="button button3" onclick="window.location.href='theories.html'">Community Theories</button>
+        <button class="button button4" onclick="window.location.href='resources.html'">Resources</button>
+    </nav>
+    
+    <div class="profile-container">
+        <div class="profile-header">
+            <h2 class="profile-name">Ted Bundy</h2>
+            <p class="profile-subtitle">American Serial Killer | Active 1974-1978 | Executed 1989</p>
+            <img src="data:image/jpeg;base64,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" alt="Ted Bundy" class="profile-image">
+        </div>
+        
+        <!-- Early Life Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Early Life & Family Background</h3>
+            <div class="section-content">
+                <p><strong>Birth Name:</strong> Theodore Robert Cowell (later changed to Bundy)</p>
+                <p><strong>Born:</strong> November 24, 1946 in Burlington, Vermont</p>
+                
+                <p><strong>Childhood Trauma:</strong> Bundy was raised believing his grandparents were his parents and his mother was his sister. This early deception may have contributed to his psychological development.</p>
+                
+                <p><strong>Education:</strong> Earned a psychology degree from the University of Washington in 1972. Later attended law school at the University of Utah.</p>
+                
+                <p><strong>Early Signs:</strong> As a teenager, Bundy exhibited disturbing behaviors including voyeurism and theft, though he maintained a charming public persona.</p>
+            </div>
+        </div>
+        
+        <!-- Psychological Profile Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Psychological Profile</h3>
+            <div class="section-content">
+                <p><strong>Diagnosed Conditions:</strong></p>
+                <ul>
+                    <li>Antisocial Personality Disorder</li>
+                    <li>Narcissistic Personality Disorder</li>
+                    <li>Possible Psychopathy (PCL-R score 39/40)</li>
+                </ul>
+                
+                <p><strong>Key Traits:</strong></p>
+                <ul>
+                    <li>Extreme charm and intelligence (IQ estimated at 136)</li>
+                    <li>Complete lack of remorse or empathy</li>
+                    <li>Compulsive need for control and domination</li>
+                    <li>Sexual sadism (derived pleasure from victims' suffering)</li>
+                </ul>
+                
+                <p><strong>Manipulative Behavior:</strong> Bundy famously acted as his own attorney during trial, using the opportunity to manipulate media attention and flirt with female spectators.</p>
+            </div>
+        </div>
+        
+        <!-- Murder Methods Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Murder Methods & Signature Behaviors</h3>
+            <div class="section-content">
+                <p>Bundy's killing methods evolved but maintained distinctive patterns:</p>
+                
+                <div class="crime-signature">
+                    <div class="signature-item">
+                        <div class="signature-title">Victim Selection</div>
+                        <p>Primarily targeted young, attractive white women with long dark hair parted in the middle</p>
+                    </div>
+                    
+                    <div class="signature-item">
+                        <div class="signature-title">Modus Operandi</div>
+                        <p>Used charm and fake injuries to gain victims' trust before attacking</p>
+                    </div>
+                    
+                    <div class="signature-item">
+                        <div class="signature-title">Signature</div>
+                        <p>Returned to victims' corpses for sexual acts and kept trophies</p>
+                    </div>
+                </div>
+                
+                <p><strong>Escalation:</strong> Began with blitz attacks, progressed to elaborate ruses, and eventually committed home invasions.</p>
+            </div>
+        </div>
+        
+        <!-- Capture & Execution Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Capture & Execution</h3>
+            <div class="section-content">
+                <p><strong>Arrest:</strong> First arrested in 1975 for attempted kidnapping in Utah. Later escaped twice before final capture in Florida in 1978.</p>
+                
+                <p><strong>Confessions:</strong> In final days, confessed to 30 murders across 7 states, though actual count may be higher.</p>
+                
+                <p><strong>Execution:</strong> Electrocuted at Florida State Prison on January 24, 1989 after numerous appeals.</p>
+                
+                <p><strong>Legacy:</strong> Bundy's case revolutionized criminal profiling and helped establish the FBI's Behavioral Analysis Unit.</p>
+            </div>
+        </div>
+        
+        <div class="return-link">
+            <a href="investigation-ted-bundy.html">View Investigation Timeline →</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 TrueCrime Central. All rights reserved.</p>
+    </footer>
+</body>
+</html>

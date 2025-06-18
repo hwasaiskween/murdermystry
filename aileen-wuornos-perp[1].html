@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aileen Wuornos Profile | TrueCrime Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mysterio.css">
+    <style>
+        /* Perpetrator profile styles */
+        .profile-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        .profile-name {
+            color: #dac577cf;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-subtitle {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8b0000;
+            margin: 0 auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-section {
+            background-color: rgba(22, 3, 3, 0.471);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #dac577cf;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .section-title {
+            color: #dac577cf;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-content {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .crime-signature {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .signature-item {
+            background-color: rgba(139, 0, 0, 0.2);
+            padding: 0.8rem;
+            border-radius: 6px;
+            border-left: 3px solid #8b0000;
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .signature-item:hover {
+            background-color: rgba(139, 0, 0, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .signature-title {
+            color: #dac577cf;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Delay animations for each section */
+        .profile-section:nth-child(1) { animation-delay: 0.2s; }
+        .profile-section:nth-child(2) { animation-delay: 0.4s; }
+        .profile-section:nth-child(3) { animation-delay: 0.6s; }
+        .profile-section:nth-child(4) { animation-delay: 0.8s; }
+        
+        .return-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .return-link a {
+            color: #dac577cf;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .return-link a:hover {
+            color: #f5f5f5;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Perpetrator Profile</h1>
+        <p class="subtitle">Psychological and biographical analysis of criminal offenders</p>
+    </header>
+    
+    <nav>
+        <button class="button button1" onclick="window.location.href='innovativeassignment.html'">Home</button>
+        <button class="button button2" onclick="window.location.href='login.html'">Login</button>
+        <button class="button button3" onclick="window.location.href='theories.html'">Community Theories</button>
+        <button class="button button4" onclick="window.location.href='resources.html'">Resources</button>
+    </nav>
+    
+    <div class="profile-container">
+        <div class="profile-header">
+            <h2 class="profile-name">Aileen Wuornos</h2>
+            <p class="profile-subtitle">American Serial Killer | Active 1989-1990 | Executed 2002</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5-Hr3_Z6V5RobEWa4EOwCknw10pe7gyhdZw&s" alt="Aileen Wuornos" class="profile-image">
+        </div>
+        
+        <!-- Early Life Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Early Life & Trauma</h3>
+            <div class="section-content">
+                <p><strong>Birth:</strong> February 29, 1956 in Rochester, Michigan</p>
+                <p><strong>Abandonment:</strong> Her mother abandoned her at birth; father was a convicted child molester who committed suicide in prison.</p>
+                
+                <p><strong>Childhood Abuse:</strong> Raised by abusive grandparents. Began trading sexual favors for cigarettes at age 9, was pregnant by 14 (child given up for adoption).</p>
+                
+                <p><strong>Teen Years:</strong> Lived in woods near her home after being thrown out. Supported herself through prostitution from age 15.</p>
+                
+                <p><strong>Early Crimes:</strong> Arrested for drunk driving, disorderly conduct, and armed robbery in her 20s.</p>
+            </div>
+        </div>
+        
+        <!-- Psychological Profile Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Psychological Profile</h3>
+            <div class="section-content">
+                <p><strong>Diagnosed Conditions:</strong></p>
+                <ul>
+                    <li>Borderline Personality Disorder</li>
+                    <li>Antisocial Personality Disorder</li>
+                    <li>Psychosis (developed during incarceration)</li>
+                    <li>Possible Fetal Alcohol Syndrome</li>
+                </ul>
+                
+                <p><strong>Key Traits:</strong></p>
+                <ul>
+                    <li>Extreme childhood trauma and attachment issues</li>
+                    <li>Paranoid ideation (believed men were "raping the planet")</li>
+                    <li>Alcohol and substance abuse problems</li>
+                    <li>Inconsistent accounts of her crimes (alternated between claiming self-defense and admitting murder)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Murder Methods Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Murder Methods & Signature Behaviors</h3>
+            <div class="section-content">
+                <p>Wuornos' killing methods were consistent but her motivations remain debated:</p>
+                
+                <div class="crime-signature">
+                    <div class="signature-item">
+                        <div class="signature-title">Victim Selection</div>
+                        <p>Targeted middle-aged white male motorists while working as a highway prostitute</p>
+                    </div>
+                    
+                    <div class="signature-item">
+                        <div class="signature-title">Modus Operandi</div>
+                        <p>Lured victims to remote areas, shot them with .22 caliber pistol, stole their vehicles and valuables</p>
+                    </div>
+                    
+                    <div class="signature-item">
+                        <div class="signature-title">Signature</div>
+                        <p>Left bodies at or near the crime scene, made no effort to conceal identities</p>
+                    </div>
+                </div>
+                
+                <p><strong>Financial Motive:</strong> Unlike most serial killers, Wuornos appeared motivated primarily by robbery to support herself and her lover.</p>
+            </div>
+        </div>
+        
+        <!-- Capture & Execution Section -->
+        <div class="profile-section">
+            <h3 class="section-title">Capture & Execution</h3>
+            <div class="section-content">
+                <p><strong>Arrest:</strong> Captured in January 1991 after fingerprints linked her to multiple crime scenes.</p>
+                
+                <p><strong>Trials:</strong> Convicted and sentenced to death for six of the seven murders (one case wasn't prosecuted).</p>
+                
+                <p><strong>Mental Decline:</strong> In prison, developed increasingly bizarre behavior, claiming she was being tortured by prison guards with "radio waves."</p>
+                
+                <p><strong>Execution:</strong> After exhausting appeals, was executed by lethal injection on October 9, 2002.</p>
+                
+                <p><strong>Legacy:</strong> One of America's few female serial killers, her case raised questions about mental illness, childhood trauma, and the death penalty.</p>
+            </div>
+        </div>
+        
+        <div class="return-link">
+            <a href="investigation-aileen.html">View Investigation Timeline →</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 TrueCrime Central. All rights reserved.</p>
+    </footer>
+</body>
+</html>

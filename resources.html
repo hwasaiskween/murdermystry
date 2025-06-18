@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | TrueCrime Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mysterio.css">
+    <style>
+        /* Additional styles for resources page */
+        .resources-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .resource-section {
+            background-color: rgba(22, 3, 3, 0.471);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #dac577cf;
+        }
+        
+        .resource-section h2 {
+            color: #dac577cf;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .resource-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-category h3 {
+            color: #f5f5f5;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-item {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #8b0000;
+        }
+        
+        .resource-item h4 {
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-item p {
+            color: #aaa;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .resource-link {
+            color: #dac577cf;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .resource-link:hover {
+            color: #f5f5f5;
+            text-decoration: underline;
+        }
+        
+        .resource-link::after {
+            content: " ↗";
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TrueCrime Resources</h1>
+        <p class="subtitle">Essential tools, references, and information for crime researchers and enthusiasts</p>
+    </header>
+    
+    <nav>
+        <button class="button button1" onclick="window.location.href='innovativeassignment.html'">Home</button>
+        <button class="button button2" onclick="window.location.href='login.html'">Login</button>
+        <button class="button button3" onclick="window.location.href='theories.html'">Community Theories</button>
+        <button class="button button4" onclick="window.location.href='resources.html'" disabled>Resources</button>
+    </nav>
+    
+    <div class="resources-container">
+        <!-- Recommended Media Section -->
+        <div class="resource-section">
+            <h2>Recommended Books & Documentaries</h2>
+            
+            <div class="resource-category">
+                <h3>Books</h3>
+                
+                <div class="resource-item">
+                    <h4>"I'll Be Gone in the Dark" by Michelle McNamara</h4>
+                    <p>The haunting true story of the Golden State Killer investigation.</p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>"The Stranger Beside Me" by Ann Rule</h4>
+                    <p>Ann Rule's personal account of knowing Ted Bundy before his crimes were discovered.</p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>"Mindhunter" by John E. Douglas</h4>
+                    <p>The FBI's pioneer of criminal profiling shares his experiences with serial killers.</p>
+                </div>
+            </div>
+            
+            <div class="resource-category">
+                <h3>Documentaries & Podcasts</h3>
+                
+                <div class="resource-item">
+                    <h4>The Jinx (HBO)</h4>
+                    <p>Robert Durst and the mysterious deaths surrounding him.</p>
+                    <a href="https://www.hbo.com/the-jinx" class="resource-link" target="_blank">Watch on HBO</a>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Making a Murderer (Netflix)</h4>
+                    <p>The controversial case of Steven Avery.</p>
+                    <a href="https://www.netflix.com/title/80000770" class="resource-link" target="_blank">Watch on Netflix</a>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Serial Podcast</h4>
+                    <p>Season 1 covers the Adnan Syed case.</p>
+                    <a href="https://serialpodcast.org" class="resource-link" target="_blank">Listen to Serial</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Law Enforcement & Forensic Resources -->
+        <div class="resource-section">
+            <h2>Law Enforcement & Forensic Resources</h2>
+            
+            <div class="resource-category">
+                <h3>Forensic Science Guides</h3>
+                
+                <div class="resource-item">
+                    <h4>FBI Crime Lab Techniques</h4>
+                    <p>Official resources on forensic methods used by the FBI.</p>
+                    <a href="https://www.fbi.gov/services/laboratory" class="resource-link" target="_blank">Visit FBI Lab</a>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>National Institute of Justice (NIJ) Forensic Methods</h4>
+                    <p>Research and developments in forensic science.</p>
+                    <a href="https://nij.ojp.gov/topics/forensics" class="resource-link" target="_blank">Visit NIJ</a>
+                </div>
+            </div>
+            
+            <div class="resource-category">
+                <h3>Cold Case Databases</h3>
+                
+                <div class="resource-item">
+                    <h4>NamUs (National Missing and Unidentified Persons System)</h4>
+                    <p>National database for missing persons and unidentified remains.</p>
+                    <a href="https://www.namus.gov" class="resource-link" target="_blank">Visit NamUs</a>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>The Doe Network</h4>
+                    <p>International database for unidentified victims.</p>
+                    <a href="https://www.doenetwork.org" class="resource-link" target="_blank">Visit Doe Network</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- How to Help Solve Cases -->
+        <div class="resource-section">
+            <h2>How to Help Solve Cases</h2>
+            
+            <div class="resource-category">
+                <h3>Citizen Sleuthing Tips</h3>
+                
+                <div class="resource-item">
+                    <h4>Ethical Online Investigations</h4>
+                    <p>Guidelines for responsibly researching cases online.</p>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>Submitting Tips to Law Enforcement</h4>
+                    <p>How and where to submit credible information.</p>
+                </div>
+            </div>
+            
+            <div class="resource-category">
+                <h3>Active Cases Needing Tips</h3>
+                
+                <div class="resource-item">
+                    <h4>America's Most Wanted</h4>
+                    <p>Current cases seeking public assistance.</p>
+                    <a href="https://www.amw.com" class="resource-link" target="_blank">Visit AMW</a>
+                </div>
+                
+                <div class="resource-item">
+                    <h4>FBI Most Wanted</h4>
+                    <p>The FBI's list of most wanted fugitives.</p>
+                    <a href="https://www.fbi.gov/wanted" class="resource-link" target="_blank">Visit FBI Wanted</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Victim Advocacy & Support -->
+        <div class="resource-section">
+            <h2>Victim Advocacy & Support</h2>
+            
+            <div class="resource-item">
+                <h4>National Center for Missing & Exploited Children (NCMEC)</h4>
+                <p>Resources for families of missing children.</p>
+                <a href="https://www.missingkids.org" class="resource-link" target="_blank">Visit NCMEC</a>
+            </div>
+            
+            <div class="resource-item">
+                <h4>VictimConnect Resource Center</h4>
+                <p>Confidential referrals for crime victims.</p>
+                <a href="https://victimconnect.org" class="resource-link" target="_blank">Visit VictimConnect</a>
+            </div>
+        </div>
+        
+        <!-- Legal & Ethical Considerations -->
+        <div class="resource-section">
+            <h2>Legal & Ethical Considerations</h2>
+            
+            <div class="resource-item">
+                <h4>Innocence Project</h4>
+                <p>Organization working to exonerate the wrongly convicted.</p>
+                <a href="https://www.innocenceproject.org" class="resource-link" target="_blank">Visit Innocence Project</a>
+            </div>
+            
+            <div class="resource-item">
+                <h4>Bureau of Justice Statistics</h4>
+                <p>Official statistics about crime and justice in the U.S.</p>
+                <a href="https://www.bjs.gov" class="resource-link" target="_blank">Visit BJS</a>
+            </div>
+        </div>
+        
+        <!-- Interactive Tools -->
+        <div class="resource-section">
+            <h2>Interactive Tools</h2>
+            
+            <div class="resource-item">
+                <h4>Crime Mapping Tools</h4>
+                <p>Visualize crime data geographically.</p>
+            </div>
+            
+            <div class="resource-item">
+                <h4>Timeline Generators for Case Theories</h4>
+                <p>Tools to help organize case chronologies.</p>
+            </div>
+            
+            <div class="resource-item">
+                <h4>Websleuths Community</h4>
+                <p>Forum for discussing unsolved cases.</p>
+                <a href="https://www.websleuths.com" class="resource-link" target="_blank">Visit Websleuths</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 TrueCrime Central. All rights reserved.</p>
+    </footer>
+</body>
+</html>
